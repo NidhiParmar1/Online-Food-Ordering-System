@@ -1,0 +1,49 @@
+
+<div class='box container'>
+<h2>Payment Mode</h2>
+<form action="/pay" method="post">
+<script src="https://checkout.stripe.com/checkout.js"
+class="stripe-button"
+data-key="pk_test_TmYs58Tbk0gn8WAK0WIsL44m00gj7mrWf0"
+data-name="FOOD ADDA"
+data-description="Online Food Order System"
+data-locale="auto"
+data-currency="inr"
+>
+</script>
+<input type="hidden" name="amount" value="{{amount}}" />
+<input type="hidden" name="address"value="{{addr}}" >
+</form></br>
+<a href="/checkOut?addr={{addr}}&payment=Unpaid" class="btn btn-info"> Cash On Delivery</a>
+</div>
+<style>
+h2{
+    text-align: center;
+  color:white;
+  font-size:40px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+  
+body{
+  background-color: #ff8080;
+  background-image: url(FoodBack.jpg);
+}
+
+.box{
+  padding: 2px;
+  text-align: center;
+  background-color: #cccecc;
+  height: 250px;
+  width: 400px;
+
+}
+th{text-align: center;}
+td{font-size: 18px;
+color: white;
+text-align: center;
+}
+
+</style>

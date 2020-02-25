@@ -1,0 +1,70 @@
+
+  <h2>Order Status</h2>  
+  {{#if prodetail}}       
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Payment</th>
+        <th>Ordered On</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each prodetail}}
+      <tr>
+      {{#each data}}
+        <td ><img height="50" weidth="50" src="{{this.ImgAddress}}" alt="img not found"></td>
+        {{/each}} 
+        <td>{{this._id}}</td>
+        <td>{{this.Pname}}</td>
+        <td >{{this.Price}}</td>
+        <td >{{this.Quantity}}</td>
+        <td>{{this.Total}}</td>
+        <td>{{this.Status}}</td>
+        <td>{{this.Payment}}</td>
+        <td>{{this.datetime}}</td>
+        
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <h3>No order Placed Yet...</h3>
+  {{/if}}
+
+
+<style>
+  h2{
+    text-align: center;
+  color:white;
+  font-size:40px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+body{
+  background-color: #cccecc;
+}
+
+td:hover{ transform: scale(1.2); }
+thead{
+  color:#ffffff;
+  font-size:20px;
+  background-color: #ff471a;
+}
+th{text-align: center;}
+td{font-size: 18px;
+color: #000080;
+text-align: center;
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<script>
+	function isPositive(value){
+		return value>0;
+	}
+
+	function isEven(value){
+		return value%2==0;
+	}
+
+var filtered=[11, 112, 0, -1, -9].filter(isPositive);
+console.log(filtered);
+
+var arrout=[11, 112, 113, 114, 115, 116].filter(isEven);
+console.log(arrout);
+
+var p={
+	name: 'Alfred',
+	nn: 'Alfy'
+}
+console.log('Hi, I am '+p.name+' !Call Me " '+p.nn+ '".');
+console.log(`Hi I'm ${p.name} ! Call me "${p.nn}"`);
+
+let arr =["Riya", "John"];
+let [firstname, lastname]=arr;
+console.log(firstname);
+console.log(lastname);
+
+let arr2=["Hello","Riya", "Methue", "How are You Doing?" ];
+let [first, second, ,four]=arr2;
+console.log(first);
+console.log(second);
+console.log(four);
+
+for(num=1; num<100; num++){
+	while(num%7==0&&num%5==0){
+		console.log(num);
+	}
+}
+
+</script>

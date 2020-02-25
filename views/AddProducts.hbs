@@ -1,0 +1,110 @@
+
+<script>
+$(document).ready(function(){
+  $("#pname").blur(function(){
+    var id=$("#pname").val();
+//    alert(id)
+
+    $.ajax({
+      url:  'CheckPname',
+      data:"pname="+id,
+      type:'get',
+      success:function(response)
+      {
+  //      alert(response)
+        if(response.msg=="Already Exist")
+        $("#pname").val(" ");
+        $("#errmsg").html(id+" "+response.msg);
+        }
+     });  //AJAX end
+  });   //blur end
+});    //ready end
+
+</script>
+
+
+<div class="container jumbotron">
+  <div class="text-center"><h2>Add Product Details</h2></div>
+  {{#if msg}}
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{msg}}</strong> 
+  </div>
+  {{/if}}
+  <form class="form-horizontal" action="/saveProduct" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Product Name:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="pname" placeholder="Enter Product" name="pname" required>
+      </div>
+      <div style="color: red" id="errmsg"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2"for="sel1">Category:</label>
+      <div class="col-sm-8">
+        <select  id="email" name="option">
+          <option>--select--</option>
+          <option>Ready To Eat</option>
+          <option>Ready To Drink</option>
+          <option>Ready To Cook</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Price:</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control" id="email" placeholder="Enter Price" name="price" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Description:</label>
+      <div class="col-sm-8">
+        <textarea row="4"  rows="5" id="comment" class="form-control"  name="text"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Image:</label>
+      <div class="col-sm-8">
+         <input type="file" class="form-control" id="email" placeholder="Enter Price" name="file">
+      </div>
+    </div>
+    
+    <div class="form-group text-center">        
+      <div class="col-sm-offset-2 col-sm-8">
+        <button type="submit" class="btn btn-info text-center">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<style>
+  body{
+background-color: #999966;
+background-image: url(FoodBack.jpg);
+}
+
+.jumbotron{
+
+  border: 2px solid #404d4d;
+  margin: auto;
+  background-color: #cccecc;
+}
+
+h2{
+  color:blue;
+  font-size:36px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+h2:hover{
+  transform: scale(1.2);
+  }
+  h3:hover{transform: scale(1.2);}
+</style>
+  
+}
+</body>
+</html>

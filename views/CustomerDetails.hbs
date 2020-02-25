@@ -1,0 +1,54 @@
+
+  <h2>Customer Detail</h2>  
+  {{msg}}        
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Customer Id</th>
+        <th>Contact No</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each prodetail}}
+      <tr>
+        <td>{{this.username}}</td>
+        <td>{{this.userid}}</td>
+        <td>{{this.contactno}}</td>
+        <td>{{this.address}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+
+<style>
+  h2{
+    text-align: center;
+  color:white;
+  font-size:40px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+body{
+  background-color: #669999;
+}
+
+td:hover{ transform: scale(1.2); }
+thead{
+  color:#ffff66;
+  font-size:20px;
+  background-color: #ff471a;
+}
+th{text-align: center;}
+td{font-size: 18px;
+color: white;
+text-align: center;
+}
+
+</style>
+</body>
+</html>

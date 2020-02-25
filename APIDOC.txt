@@ -1,0 +1,75 @@
+API:
+1)Admin Login
+method: post
+Input: loginid, password
+URL: http://localhost:8000/api/loginCheck
+
+2) View All Products
+method: get
+Input: NA
+URL: http://localhost:8000/api/viewProducts
+
+3) Add Products
+method: post
+Input: pname, category, price, desc
+URL: http://localhost:8000/api/addProduct
+
+4)  Delete Perticular Product
+method: delete
+Input: id
+URL:http://localhost:8000/api/deleteProduct?id=<id>
+ex: http://localhost:8000/api/deleteProduct?id=
+
+
+5)  Update Perticular Product
+method: put
+Input: id, pname, category, price, description
+URL:http://localhost:8000/api/updateProduct
+
+6) View Pending Orders
+method: get
+Input: NA
+URL:http://localhost:8000/api/viewPendingOrders
+
+6) View Orders History
+method: get
+Input: NA
+URL:http://localhost:8000/api/view
+
+
+
+CUSTOMER MODULE
+1) Customer Login
+method: post
+Input: loginid, password
+URL: http://localhost:8000/api/customerlogin
+
+2) Customer SignUp
+method: post
+Input:cid ,Cname, password,contactno,address
+URL: http://localhost:8000/api/signupCustomer
+
+3) Add Product to the Cart
+method: post
+Input: PID, Pname, price, quantity, cid
+URL: http://localhost:8000/api/addToCart
+
+4) View Cart
+method: get
+Input: cid
+URL: http://localhost:8000/api/viewCart?cid=<customerId>
+Ex: http://localhost:8000/api/viewCart?cid=N@gmail.com
+
+5)Delete Product From Cart
+method: delete
+Input: cid, Pname
+URL: http://localhost:8000/api/removecartproduct?cid=<customerId>&Pname=<ProductName>
+Ex: http://localhost:8000/api/removecartproduct?cid=N@gmail.com&Pname=Pizza
+
+6) View Order Status
+method: get
+Input: cid
+URL: http://localhost:8000/api/vieworderStatus?cid=<customerId>
+Ex: http://localhost:8000/api/vieworderStatus?cid=N@gmail.com
+
+

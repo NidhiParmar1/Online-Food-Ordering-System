@@ -1,0 +1,120 @@
+ <script>
+$(document).ready(function(){
+  $("#addr").click(function(){
+//    alert(id)
+
+    $.ajax({
+      url:  'checkAddress',
+      type:'get',
+      success:function(response)
+      {
+        $("#newaddr").val(response.msg);
+        }
+     });  //AJAX end
+  });   //click end
+});    //ready end
+</script>
+ <h2>Customer Cart</h2>  
+ {{#if ordermsg }}
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ordermsg}}</strong> 
+  </div>
+  {{/if}}    
+  {{#if prodetail}}
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Delete</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      {{#each prodetail}}
+      <tr>
+      {{#each data}}
+        <td><img height="80" weidth="80" src="{{this.ImgAddress}}" alt="Img not Found"></td>
+        {{/each}}
+        <td >{{this.Pname}}</td>
+        <td >{{this.Price}}</td>
+        <td >{{this.Quantity}}</td>
+        <td >{{this.fprice}}</td>
+        <td><a href="/removecartproduct?id={{this.Pname}}" onclick="return confirm('Do you really want to remove the Product form Cart??')">Remove</a></td>
+        </tr>
+      {{/each}}
+      <tr><td></td>
+      <td></td>
+      <td></td>
+      <td><b>Total</b></td>
+      <td ><b>{{gtotal}}</b></td>
+      <td></td></tr>
+    </tbody>
+  </table>
+
+  
+   <form name='cart' action="/placeOrder" method="post"> 
+   <div class="form-group">
+   <div class="form-group">
+   <label class="col-sm-2" style="color:#000080">Address:</label>
+   <label class="col-sm-3" style="color:#000080">Same as the Registered Address</label><input type="checkbox" id="addr"></div>
+      <div class="col-sm-4">
+        <textarea rows="4"  cols="30" id="newaddr" class="form-control"  name="text" placeholder="Enter Address" ></textarea>
+      </div></div>
+    <input type="hidden" value="{{gtotal}}" name="amount">
+   <div class="form-group">
+   <input type="submit" value="Place Order" id="btn">
+   </div> </form>
+{{else}}
+<h3>Your Shopping Cart is Empty...</h3>
+{{/if}}
+<style>
+  h2{
+    text-align: center;
+  color:white;
+  font-size:40px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+body{
+  background-color: #cccecc;
+}
+
+thead{
+  color:#ffffff;
+  font-size:20px;
+  background-color: #ff471a;
+}
+th{text-align: center;}
+td{font-size: 18px;
+color: #000080;
+text-align: center;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+#btn{
+  background-color:#e0ebeb;
+  float: right;
+  color: black;
+  border: none;
+  width: 20%;
+  border-radius: 3px;
+  font-size: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+
+</style>
+</body>
+</html>

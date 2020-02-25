@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand active">Online FOOD ZILLA</a>
+    </div>
+    <ul class="nav navbar-nav">
+      {{#if user}}
+      <li class="active"><a href="/backHome">Home</a></li>
+      <li><a href="/addProduct">Add Products</a></li>
+      <li><a href="/viewProducts">View All Products</a></li>
+      <li><a href="/viewCustomer">View All Customers</a></li>
+      <li><a href="/viewOrderHistory">Order History</a></li>
+      <li><a href="/viewPendingOrders">Pending Orders</a></li>
+      {{else}} 
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="active"><a href="/">Index</a></li>
+      {{#if customer}}
+      <li><a href="/orderStatus">Order Status</a></li> 
+      {{/if}}
+
+      <form class="navbar-form navbar-right" action="/serchOrders" method="post">
+      <div class="form-group">
+        <select type="text" class="form-control" placeholder="Search" name="search">
+          <option> </option>
+          <option>Ready To Eat</option>
+          <option>Ready To Cook</option>
+          <option>Ready To Drink</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    {{/if}}
+    </ul>
+    
+
+      <ul class="nav navbar-nav navbar-right">
+ {{#if user}}
+      <li><a href="/logout">Logout<span class="glyphicon glyphicon-log-out"></span></a></li>
+    </a></li> 
+  {{else}}
+       <li><a href="/viewCart"><i class="fa fa-shopping-cart" style="font-size:36px;color:red"></i></a></li>
+   {{#if customer}}
+   <li><a href="/logout">Logout<span class="glyphicon glyphicon-log-out"></span></a></li>
+    {{else}}
+    <li><a href="/customerLogin">Customer LogIn<span class="glyphicon glyphicon-log-out"></span>
+    </a></li>
+    {{/if}}
+    {{/if}}
+    
+    </ul>
+  </div>
+</nav>
+<div class="container">{{{body}}}
+
+</div>
+
+</body>
+
+</html>

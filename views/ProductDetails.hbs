@@ -1,0 +1,59 @@
+  <h2>Product Details</h2>  
+  {{msg}}        
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product Image </th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Description</th>
+        
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each prodetail}}
+      <tr>
+        <td><img height='100'width='100'src="{{this.ImgAddress}}" alt="img not found"></td>
+        <td>{{this.Pname}}</td>
+        <td>{{this.Category}}</td>
+        <td>{{this.Price}}</td>
+        <td>{{this.Description}}</td>
+        <td><a href="/deleteproduct?id={{this.id}}" onclick="return confirm('Do you really want to delete??')">Delete</a></td>
+        <td><a href="/updateproduct?id={{this.id}}" >Update</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+
+<style>
+  h2{
+    text-align: center;
+  color:white;
+  font-size:40px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+body{
+  background-color: #cccecc;
+}
+th{text-align: center;}
+td:hover{ transform: scale(1.2); }
+thead{
+  color:#ffff66;
+  font-size:20px;
+  background-color: #ff471a;
+}
+td{font-size: 18px;
+color: #000066;
+text-align: center;
+}
+
+</style>
+</body>
+</html>

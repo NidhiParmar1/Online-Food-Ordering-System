@@ -1,0 +1,97 @@
+
+  <h2 class="text-center">FOOD ZILLA</h2>
+  <h4>{{customer}}</h4>
+  {{#if msg}}
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{msg}}</strong> 
+  </div>
+  {{/if}}
+  <div class="row" >
+    {{#each prodetail}}
+    <div class="col-lg-4 col-md-6 col-sm-8" id="style" style="background-color:lavender;">
+      <div  class="box"> 
+        <img  height="200" width="200" src ="{{this.ImgAddress}}" alt= "Img Not Found"> </div>
+
+      <form class="form-horizontal" action="/addToCart" method="post">
+        <input type="hidden" class="form-control"  name="PID" value="{{this.id}}" readonly>
+
+    <div class="form-group">
+      <div class="box" id="text">{{this.Pname}}
+        <input type="hidden" class="box" id="text" name="Pname" value="{{this.Pname}}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" > Price:</label>
+      <div class="col-sm-4"><label class="control-label col-sm-2" > {{this.Price}}</label>
+        <input type="hidden" class="form-control" id="" name="price" value="{{this.Price}}" readonly>
+      </div>
+      <label class="control-label col-sm-2">Quantity:</label>
+      <div class="col-sm-4">
+        <input type="number" class="form-control" id="" name="quantity" value="1" required>
+      </div>   
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-6">          
+        <textarea rows="2" cols="40" name="desc" style="background-color: lavender; border-color:lavender"readonly>{{this.Description}}</textarea>
+      </div>
+    </div>
+    <div class="form-group text-center">        
+      <div class="col-sm-offset-2 col-sm-8 text-center">
+        <button type="submit" class="btn btn-info ">Add To Cart</button>
+      </div>
+    </div>
+  </form>
+  </div>
+  {{/each}}
+  </div>    
+
+  <style>
+#text{
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.form-control{
+background-color: lavender;
+border-color: lavender;
+text-align: center;
+  
+}
+body{
+background-color: #999966;
+background-image: url(FoodBack.jpg);
+}
+
+#style{
+border: solid red;
+}
+
+h2{
+  color:white;
+  font-size:36px;
+  font-weight: bold;
+  text-shadow: 0 6px 4px #95ef67,
+        -3px -5px 4px #ff2192,
+         3px -5px 4px #ffe200;
+}
+h4{
+  color: red;
+  font-weight: bold;
+
+}
+h2:hover{
+  transform: scale(1.2);
+  }
+  h3:hover{transform: scale(1.2);}
+
+.box{
+  text-align: center;
+  background-color: lavender;
+  color: blue;
+}
+  </style>
+
+
+
